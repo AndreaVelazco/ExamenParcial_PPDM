@@ -43,4 +43,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
         navigateToFragment(WelcomeFragment())
     }
+
+    fun navigateToResultsFragment() {
+        TODO("Not yet implemented")
+    }
 }
