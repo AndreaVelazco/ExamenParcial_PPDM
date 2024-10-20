@@ -56,7 +56,6 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     }
 
     private fun showQuestion(view: View) {
-        // Muestra la pregunta actual y las opciones
         val questionTextView: TextView = view.findViewById(R.id.questionTextView)
         val currentQuestion = questions[currentQuestionIndex]
 
@@ -84,8 +83,6 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         val selectedOptionId = radioGroup.checkedRadioButtonId
 
         if (selectedOptionId == -1) {
-            // Si no se seleccionó ninguna opción, podemos mostrar un mensaje de advertencia
-            // o simplemente retornar para que el usuario seleccione una opción
             return
         }
 
