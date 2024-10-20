@@ -22,15 +22,14 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Ejemplo: configurando una pregunta
         val questionTextView: TextView = view.findViewById(R.id.questionTextView)
-        questionTextView.text = "¿Cuál es la capital de Francia?"
+        questionTextView.text = "¿Cuanto mide el volcan Misti?"
 
         val answerButton: Button = view.findViewById(R.id.answerButton)
         answerButton.setOnClickListener {
-            // Navegar a AnswerFragment con datos
-            val isCorrect = true // Esta es solo una lógica de ejemplo
-            val explanation = "París es la capital de Francia."
+            // Navegamos a AnswerFragment con datos
+            val isCorrect = true 
+            val explanation = "El volcan Misti mide aproximadamente 5822 m."
 
             val answerFragment = AnswerFragment.newInstance(isCorrect, explanation)
             (activity as? MainActivity)?.navigateToFragment(answerFragment)
