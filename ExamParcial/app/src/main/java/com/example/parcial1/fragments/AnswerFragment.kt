@@ -22,22 +22,19 @@ class AnswerFragment : Fragment(R.layout.fragment_answer) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Obtener los argumentos del Bundle si los hay
         val arguments = arguments
         val isAnswerCorrect = arguments?.getBoolean("isAnswerCorrect") ?: false
         val explanation = arguments?.getString("explanation") ?: "No hay explicación disponible."
 
-        // Mostrar la retroalimentación al usuario
         val feedbackTextView: TextView = view.findViewById(R.id.feedbackTextView)
         feedbackTextView.text = if (isAnswerCorrect) {
-            "¡Correcto! $explanation"
+            "¡Correcto! :) $explanation"
         } else {
-            "Incorrecto. $explanation"
+            "Incorrecto :( $explanation"
         }
 
         val nextButton: Button = view.findViewById(R.id.nextButton)
         nextButton.setOnClickListener {
-            // Navegar al siguiente fragmento dependiendo de tu lógica (puede ser otra pregunta o resultados)
             (activity as? MainActivity)?.navigateToFragment(QuestionFragment())
         }
     }
