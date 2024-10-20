@@ -2,8 +2,10 @@ package com.example.parcial1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.parcial1.fragments.AnswerFragment
+import com.example.parcial1.fragments.QuestionFragment
 import com.example.parcial1.fragments.WelcomeFragment
-import com.example.parcial1.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,19 +13,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Mostrar el fragmento de bienvenida al iniciar la actividad si aún no está cargado
+        // Cargar el fragmento de bienvenida al iniciar la aplicación
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, WelcomeFragment())
-                .commit()
+            navigateToFragment(WelcomeFragment())
         }
     }
 
-    // Método para cambiar entre fragmentos
-    fun navigateToFragment(fragment: androidx.fragment.app.Fragment) {
+    fun navigateToFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .addToBackStack(null) // Permite al usuario volver al fragmento anterior
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(null)
             .commit()
+    }
+
+    fun navigateToQuestionFragment() {
+        // Cargar el fragmento de preguntas
+        navigateToFragment(QuestionFragment())
+    }
+
+    fun navigateToAnswerFragment(isCorrect: Boolean, explanation: String) {
+        // Cargar el fragmento de respuestas con los datos proporcionados
+        val answerFragment = AnswerFragment.newInstance(isCorrect, explanation)
+        navigateToFragment(answerFragment)
+    }
+
+
+    fun restartGame() {
+        // Reiniciar el juego llevando al usuario de vuelta al fragmento de bienvenida
+        supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        navigateToFragment(WelcomeFragment())
     }
 }
