@@ -26,7 +26,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
         val startButton: Button = view.findViewById(R.id.startButton)
 
         welcomeTextView.text = "Bienvenido a Preguntados!!!\n\nEn este juego, responderás una serie de preguntas sobre Arequipa.\n" +
-                    "Hay un total de 3 preguntas y cada pregunta tiene un límite de tiempo.\n¡Que la fuerza te acompañe!"
+                    "El objetivo de este juego es aprender mas sobre la cultura de Arequipa. Hay un total de 3 preguntas y cada pregunta tiene un límite de tiempo.\n¡Que la fuerza te acompañe!"
 
         // Configurar el botón para iniciar el juego
         startButton.setOnClickListener {
